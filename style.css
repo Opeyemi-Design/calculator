@@ -6,7 +6,6 @@ html {
     justify-content: center;
     align-items: center;
 }
-
 .calculator-body{
     border-radius: 2.1875rem;
     border: 8px solid #171717;
@@ -17,7 +16,6 @@ html {
     padding: 1.5rem;
     gap: 3rem;
 }
-
 .display {
     width: 20.5rem;
     height: 10rem;
@@ -25,8 +23,7 @@ html {
     background: #191A1A;
     box-shadow: -1px -1px 4px 0px rgba(255, 255, 255, 0.11) inset, 1px 1px 7px 0px #000 inset;
 }
-
-.button-container {
+.buttons-container {
     display: flex;
     width: 20.5rem;
     justify-content: center;
@@ -34,7 +31,16 @@ html {
     gap: 1rem;
     flex-wrap: wrap;
 }
-
+.clear-buttons-container {
+    display: flex;
+    gap: 1rem;
+    width: 20.5rem;
+}
+.other-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 button {
     border: none;
     outline: none;
@@ -50,13 +56,17 @@ button {
     justify-content: center;
     align-items: center;
 }
-
 button.operator {
     background: #584605;
     color: #000;
 }
-
 button.clear {
+    background: #863000;
+    color: #000;
+    flex-grow: 1;
+}
+button.all-clear {
     background: #860000;
     color: #000;
+    flex-grow: 1;
 }
