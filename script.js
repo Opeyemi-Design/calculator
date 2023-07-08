@@ -50,7 +50,7 @@ function handleNumberButtonClick(number) {
 // Function to handle operator button clicks
 function handleOperatorButtonClick(clickedOperator) {
     operator = clickedOperator;
-    display.textContent = '';
+    display.textContent = operator;
 }
 
 // Function to handle equals button click
