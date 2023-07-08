@@ -56,7 +56,7 @@ function handleNumberButtonClick(number) {
 // Function to handle operator button clicks
 function handleOperatorButtonClick(clickedOperator) {
     if (num1 && num2 && operator) {
-      const result = operate(operator, parseFloat(num1), parseFloat(num2));
+      const result = (operate(operator, parseFloat(num1), parseFloat(num2))).toFixed(16);
       num1 = result.toString();
       num2 = '';
       operator = clickedOperator;
@@ -69,7 +69,7 @@ function handleOperatorButtonClick(clickedOperator) {
 // Function to handle equals button click
 function handleEqualsButtonClick() {
     if (num1 && num2 && operator) {
-      const result = operate(operator, parseFloat(num1), parseFloat(num2));
+      const result = (operate(operator, parseFloat(num1), parseFloat(num2))).toFixed(16);
       display.textContent = result;
       // Reset variables for the next operation
       num1 = result.toString();
