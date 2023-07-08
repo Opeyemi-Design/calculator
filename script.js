@@ -1,3 +1,4 @@
+// Creating functions to perform calculations
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -14,10 +15,12 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+// Initialising variables to operator the two numbers to be operated on
 let num1 = ''
 let num2 = ''
 let operator = ''
 
+// Function to perform calculation
 function operate(operator, num1, num2) {
     switch (operator) {
       case '+':
@@ -38,9 +41,12 @@ const display = document.querySelector('.display');
 
 // Function to handle number button clicks
 function handleNumberButtonClick(number) {
+    if (operator && num2 === '') {
+      display.textContent = '';
+    }
     if (operator) {
       num2 += number;
-      display.textContent = num2;
+      display.textContent += number;
     } else {
       num1 += number;
       display.textContent = num1;
@@ -49,8 +55,15 @@ function handleNumberButtonClick(number) {
 
 // Function to handle operator button clicks
 function handleOperatorButtonClick(clickedOperator) {
-    operator = clickedOperator;
-    display.textContent = operator;
+    if (num1 && num2 && operator) {
+      const result = operate(operator, parseFloat(num1), parseFloat(num2));
+      num1 = result.toString();
+      num2 = '';
+      operator = clickedOperator;
+      display.textContent = num1;
+    } else {
+      operator = clickedOperator;
+    }
 }
 
 // Function to handle equals button click
@@ -65,7 +78,7 @@ function handleEqualsButtonClick() {
     }
 }
 
-// Add click event listeners to the number buttons
+// Adding click event listeners to the number buttons
 document.getElementById('one').addEventListener('click', () => handleNumberButtonClick('1'));
 document.getElementById('two').addEventListener('click', () => handleNumberButtonClick('2'));
 document.getElementById('three').addEventListener('click', () => handleNumberButtonClick('3'));
@@ -77,11 +90,11 @@ document.getElementById('eight').addEventListener('click', () => handleNumberBut
 document.getElementById('nine').addEventListener('click', () => handleNumberButtonClick('9'));
 document.getElementById('zero').addEventListener('click', () => handleNumberButtonClick('0'));
 
-// Add click event listeners to the operator buttons
+// Adding click event listeners to the operator buttons
 document.getElementById('multiply').addEventListener('click', () => handleOperatorButtonClick('*'));
 document.getElementById('add').addEventListener('click', () => handleOperatorButtonClick('+'));
 document.getElementById('subtract').addEventListener('click', () => handleOperatorButtonClick('-'));
 document.getElementById('divide').addEventListener('click', () => handleOperatorButtonClick('/'));
 
-// Add click event listener to the equals button
+// Adding click event listener to the equals button
 document.getElementById('equals').addEventListener('click', handleEqualsButtonClick);
