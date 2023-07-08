@@ -92,7 +92,7 @@ function handleEqualsButtonClick() {
       num2 = '';
     }
 }
-  
+
 // Function to format the result with a maximum of 16 decimal places
 function formatResult(value) {
     const stringValue = value.toString();
@@ -149,6 +149,6 @@ document.getElementById('divide').addEventListener('click', () => handleOperator
 // Adding click event listener to the equals button
 document.getElementById('equals').addEventListener('click', handleEqualsButtonClick);
 
-// Add click event listener to the clear and all clear buttons
+// Add click event listener to clear and all clear buttons
 document.querySelector('.clear').addEventListener('click', handleClearButtonClick);
 document.querySelector('.all-clear').addEventListener('click', handleAllClearButtonClick);
