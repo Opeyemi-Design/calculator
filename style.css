@@ -17,11 +17,20 @@ html {
     gap: 3rem;
 }
 .display {
-    width: 20.5rem;
+    max-width: 20.5rem;
+    box-sizing: border-box;
     height: 10rem;
     border-radius: 0.8125rem;
     background: #191A1A;
     box-shadow: -1px -1px 4px 0px rgba(255, 255, 255, 0.11) inset, 1px 1px 7px 0px #000 inset;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 1rem 0.5rem 1rem 1rem;
 }
 .buttons-container {
     display: flex;
