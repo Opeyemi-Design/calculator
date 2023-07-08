@@ -53,6 +53,21 @@ function handleNumberButtonClick(number) {
     }
 }
 
+// Function to handle decimal button click
+function handleDecimalButtonClick() {
+    if (operator && num2 === '') {
+      display.textContent = '0.';
+      num2 = '0.';
+    } else if (operator && !num2.includes('.')) {
+      num2 += '.';
+      display.textContent += '.';
+    } else if (!num1.includes('.')) {
+      num1 += '.';
+      display.textContent += '0.';
+      num1 = '0.'
+    }
+}
+
 // Function to handle operator button clicks
 function handleOperatorButtonClick(clickedOperator) {
     if (num1 && num2 && operator) {
@@ -89,6 +104,9 @@ document.getElementById('seven').addEventListener('click', () => handleNumberBut
 document.getElementById('eight').addEventListener('click', () => handleNumberButtonClick('8'));
 document.getElementById('nine').addEventListener('click', () => handleNumberButtonClick('9'));
 document.getElementById('zero').addEventListener('click', () => handleNumberButtonClick('0'));
+
+// Add click event listener to the decimal button
+document.getElementById('decimal').addEventListener('click', handleDecimalButtonClick);
 
 // Adding click event listeners to the operator buttons
 document.getElementById('multiply').addEventListener('click', () => handleOperatorButtonClick('*'));
