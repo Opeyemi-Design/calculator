@@ -84,14 +84,46 @@ function handleOperatorButtonClick(clickedOperator) {
 // Function to handle equals button click
 function handleEqualsButtonClick() {
     if (num1 && num2 && operator) {
-      const result = (operate(operator, parseFloat(num1), parseFloat(num2))).toFixed(16);
-      display.textContent = result;
-      // Reset variables for the next operation
+      let result = operate(operator, parseFloat(num1), parseFloat(num2));
+      result = parseFloat(result); // Convert result to number type
+      display.textContent = formatResult(result);
       num1 = result.toString();
       operator = '';
       num2 = '';
     }
 }
+  
+// Function to format the result with a maximum of 16 decimal places
+function formatResult(value) {
+    const stringValue = value.toString();
+    const decimalIndex = stringValue.indexOf('.');
+    if (decimalIndex !== -1 && stringValue.length - decimalIndex - 1 > 16) {
+      return parseFloat(value.toFixed(16)).toString();
+    }
+    return stringValue;
+}
+
+// Function to handle clear button click
+function handleClearButtonClick() {
+    if (num2) {
+      num2 = num2.slice(0, -1); // Remove the last character from num2
+      display.textContent = display.textContent.slice(0, -1); // Update the display
+    } else if (operator) {
+      operator = ''; // Clear the operator
+      display.textContent = num1; // Restore the display to num1
+    } else if (num1) {
+      num1 = num1.slice(0, -1); // Remove the last character from num1
+      display.textContent = display.textContent.slice(0, -1); // Update the display
+    }
+}
+
+// Function to handle all clear button click
+function handleAllClearButtonClick() {
+    num1 = '';
+    operator = '';
+    num2 = '';
+    display.textContent = '';
+  }
 
 // Adding click event listeners to the number buttons
 document.getElementById('one').addEventListener('click', () => handleNumberButtonClick('1'));
@@ -116,3 +148,7 @@ document.getElementById('divide').addEventListener('click', () => handleOperator
 
 // Adding click event listener to the equals button
 document.getElementById('equals').addEventListener('click', handleEqualsButtonClick);
+
+// Add click event listener to the clear and all clear buttons
+document.querySelector('.clear').addEventListener('click', handleClearButtonClick);
+document.querySelector('.all-clear').addEventListener('click', handleAllClearButtonClick);
