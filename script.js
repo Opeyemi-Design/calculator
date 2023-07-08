@@ -15,7 +15,7 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-// Initialising variables to operator the two numbers to be operated on
+// Initialising variables of the operator and the two numbers to be operated on
 let num1 = ''
 let num2 = ''
 let operator = ''
@@ -123,7 +123,7 @@ function handleAllClearButtonClick() {
     operator = '';
     num2 = '';
     display.textContent = '';
-  }
+}
 
 // Adding click event listeners to the number buttons
 document.getElementById('one').addEventListener('click', () => handleNumberButtonClick('1'));
