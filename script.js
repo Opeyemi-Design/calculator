@@ -63,8 +63,7 @@ function handleDecimalButtonClick() {
       display.textContent += '.';
     } else if (!num1.includes('.')) {
       num1 += '.';
-      display.textContent += '0.';
-      num1 = '0.'
+      display.textContent += '.';
     }
 }
 
